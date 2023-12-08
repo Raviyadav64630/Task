@@ -1,0 +1,17 @@
+.card {
+    border: 1px solid #ddd; 
+    border-radius: 8px; 
+    transition: transform 0.3s ease; 
+    cursor: pointer;  
+     width: 40%;
+  }
+  
+  .card:hover {
+    transform: scale(1.02); 
+  }
+  
+  .form-control {
+    width: 70%; 
+    max-width: 400px;
+  }
+  

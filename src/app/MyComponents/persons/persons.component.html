@@ -1,0 +1,28 @@
+<div class="d-flex justify-content-center mb-3">
+  <input
+    type="text"
+    [(ngModel)]="searchTerm"
+    placeholder="Search by person name"
+    class="form-control"
+  />
+</div>
+<div class="d-flex flex-wrap justify-content-center">
+  <div
+    class="card text-center m-2"
+    *ngFor="let person of data | filterByName : searchTerm"
+  >
+    <div class="card-header">Characters</div>
+    <div class="card-body">
+      <h5 class="card-title">
+        <strong>Character Name :</strong> {{ person.name }}
+      </h5>
+
+      <h5><strong>House Name :</strong> {{ person.house?.name || "" }}</h5>
+    </div>
+    <div class="card-button mb-2">
+      <button type="button" class="btn btn-dark" (click)="showQuotes(person)">
+        Open Quotes
+      </button>
+    </div>
+  </div>
+</div>

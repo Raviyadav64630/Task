@@ -1,0 +1,21 @@
+<div class="d-flex align-items-center justify-content-center">
+  <div class="card text-center" *ngIf="person">
+    <div class="card-header">
+      <strong>Character Name :</strong> {{ person.name }}
+      <br />
+      <strong>House Name :</strong> {{ person.house?.name || "" }}
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Quotes</h5>
+      <ul *ngIf="person.quotes">
+        <li *ngFor="let quote of person.quotes">
+          {{ quote }}
+        </li>
+      </ul>
+      <a class="btn btn-dark" (click)="goBack()">Back</a>
+      <a class="btn btn-dark" (click)="change(person)" style="margin-left: 8px"
+        >Change Quotes</a
+      >
+    </div>
+  </div>
+</div>
