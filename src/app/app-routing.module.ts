@@ -12,6 +12,7 @@ const routes: Routes = [
   { path: 'quotes', component: QuotesComponent },
   { path: 'display', component: DisplayComponent },
   { path: 'personQuotes', component: PersonQuotesComponent },
+  { path: '', component: HousesComponent },
 ];
 
 @NgModule({
