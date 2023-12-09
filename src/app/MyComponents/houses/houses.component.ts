@@ -12,14 +12,18 @@ export class HousesComponent implements OnInit {
   searchTerm: string = '';
 
   constructor(private dataService: DataService, private router: Router) {}
-
   ngOnInit(): void {
-    this.dataService.getHouseData().subscribe((data: any) => {
-      this.data = Object.keys(data).map((key) => ({
-        ...data[key],
-        showMembers: false,
-      }));
-    });
+    this.dataService.getHouseData().subscribe(
+      (data: any) => {
+        this.data = Object.keys(data).map((key) => ({
+          ...data[key],
+          showMembers: false,
+        }));
+      },
+      (error) => {
+        alert('Error fetching data. Please try again later.');
+      }
+    );
   }
   showMembers(house: any): void {
     this.router.navigate(['display'], { state: { house: house } });

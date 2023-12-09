@@ -17,12 +17,17 @@ export class DisplayComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe((params) => {
-      const houseData = window.history.state.house;
-      if (houseData) {
-        this.house = houseData;
+    this.route.paramMap.subscribe(
+      (params) => {
+        const houseData = window.history.state.house;
+        if (houseData) {
+          this.house = houseData;
+        }
+      },
+      (error) => {
+        alert('Error fetching data. Please try again later.');
       }
-    });
+    );
   }
 
   goBack(): void {

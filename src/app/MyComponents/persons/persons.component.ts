@@ -14,11 +14,16 @@ export class PersonsComponent implements OnInit {
   constructor(private dataService: DataService, private router: Router) {}
 
   ngOnInit(): void {
-    this.dataService.getPersonData().subscribe((data: any) => {
-      this.data = Object.keys(data).map((key) => ({
-        ...data[key],
-      }));
-    });
+    this.dataService.getPersonData().subscribe(
+      (data: any) => {
+        this.data = Object.keys(data).map((key) => ({
+          ...data[key],
+        }));
+      },
+      (error) => {
+        alert('Error fetching data. Please try again later.');
+      }
+    );
   }
 
   showQuotes(person: any): void {

@@ -19,20 +19,29 @@ export class PersonQuotesComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe((params: any) => {
-      const personData = window.history.state.person;
-      console.log(personData);
-      if (personData) {
-        this.person = personData;
+    this.route.paramMap.subscribe(
+      (params: any) => {
+        const personData = window.history.state.person;
+        if (personData) {
+          this.person = personData;
+        }
+      },
+      (error) => {
+        alert('Error fetching data. Please try again later.');
       }
-    });
+    );
   }
 
   change(person: any) {
-    this.dataService.getQuoteData().subscribe((quotesData: any) => {
-      const newQuotesArray = quotesData.map((key: any) => key.sentence);
-      this.person = { ...this.person, quotes: newQuotesArray };
-    });
+    this.dataService.getQuoteData().subscribe(
+      (quotesData: any) => {
+        const newQuotesArray = quotesData.map((key: any) => key.sentence);
+        this.person = { ...this.person, quotes: newQuotesArray };
+      },
+      (error) => {
+        alert('Error fetching data. Please try again later.');
+      }
+    );
   }
 
   goBack(): void {
