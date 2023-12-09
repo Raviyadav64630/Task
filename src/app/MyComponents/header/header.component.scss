@@ -1,0 +1,21 @@
+.navbar-brand img {
+  width: 80px;
+  height: 70px;
+  border-radius: 0.25rem;
+}
+
+.nav-link {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: white;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-pills {
+  color: white;
+}
+
+.nav-link:hover {
+  background-color: white;
+  color: black;
+}

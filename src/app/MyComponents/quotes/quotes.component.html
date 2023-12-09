@@ -1,0 +1,13 @@
+<div class="d-flex flex-wrap justify-content-center">
+  <div class="card text-center m-2" *ngFor="let quote of data">
+    <div class="card-body">
+      <h5 class="card-title">{{ quote.sentence }}</h5>
+    </div>
+  </div>
+</div>
+
+<div class="d-flex justify-content-center mt-5 mb-3">
+  <button type="button" class="btn btn-dark" (click)="change()">
+    Change Quotes
+  </button>
+</div>
